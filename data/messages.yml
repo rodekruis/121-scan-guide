@@ -1,0 +1,277 @@
+# Every message staff may see, with what it means and what to do.
+#
+# id     Fixed address: messages.html#<id>. The app's Help links point here,
+#        so never rename an id.
+# key    The message's key in the app's text (data/app_text.json). The guide
+#        shows the app's own wording in each language. If the app has no
+#        translation for a language, the English is shown with a note.
+# text   Instead of key: a message the app only shows in English.
+# card   true = also printed on the staff quick card.
+# means / do   Written by people, per language. Markdown; @slug links to a page.
+
+- id: login_error
+  group: login
+  key: login_error
+  en:
+    means: 121 did not accept the username or password.
+    do: Use your own 121 username and password, the same ones you use for 121. Check that Caps Lock is off. If it still fails, ask your administrator to check your 121 account.
+  ar:
+    means: لم يقبل نظام 121 اسم المستخدم أو كلمة المرور.
+    do: استخدم اسم المستخدم وكلمة المرور الخاصين بك في 121. تأكد من أن الأحرف الكبيرة غير مفعّلة. إذا استمرت المشكلة، اطلب من المسؤول التحقق من حسابك في 121.
+  fr:
+    means: "121 n’a pas accepté le nom d’utilisateur ou le mot de passe."
+    do: "Utilisez votre propre nom d’utilisateur et mot de passe 121. Vérifiez que le verrouillage des majuscules est désactivé. Si cela ne fonctionne toujours pas, demandez à votre administrateur de vérifier votre compte 121."
+
+- id: api_unreachable
+  group: login
+  key: api_unreachable
+  en:
+    means: The phone could not reach 121. Usually there is no internet, or the signal is weak.
+    do: Move to a place with better signal and try again. You need internet to log in.
+  ar:
+    means: تعذّر على الهاتف الاتصال بنظام 121. غالبًا لا يوجد إنترنت أو الإشارة ضعيفة.
+    do: انتقل إلى مكان فيه إشارة أفضل وحاول مرة أخرى. تحتاج إلى الإنترنت لتسجيل الدخول.
+  fr:
+    means: "Le téléphone n’a pas pu joindre 121. En général, il n’y a pas d’internet ou le signal est faible."
+    do: "Allez à un endroit où le signal est meilleur et réessayez. Il faut internet pour se connecter."
+
+- id: cannot_sync_offline
+  group: program
+  key: cannot_sync_offline
+  card: true
+  en:
+    means: The phone is offline, so it cannot download the list of people.
+    do: If the box at the top says **{{ app.status_offline_mode }}**, tap **{{ app.go_back_online }}**. Otherwise, move to a place with internet and wait until the box says **{{ app.status_online }}**.
+  ar:
+    means: الهاتف غير متصل بالإنترنت، لذلك لا يمكنه تنزيل قائمة الأشخاص.
+    do: إذا كان المربع في أعلى الشاشة يعرض **{{ app.status_offline_mode }}**، اضغط **{{ app.go_back_online }}**. وإلا انتقل إلى مكان فيه إنترنت وانتظر حتى يعرض المربع **{{ app.status_online }}**.
+  fr:
+    means: "Le téléphone est hors ligne, il ne peut donc pas télécharger la liste des personnes."
+    do: "Si la case en haut indique **{{ app.status_offline_mode }}**, appuyez sur **{{ app.go_back_online }}**. Sinon, allez à un endroit avec internet et attendez que la case indique **{{ app.status_online }}**."
+
+- id: cannot_send_offline
+  group: program
+  key: cannot_send_offline
+  card: true
+  en:
+    means: The phone is offline, so it cannot send results to 121. Your results are safe on the phone.
+    do: Send them later, when the box at the top says **{{ app.status_online }}**.
+  ar:
+    means: الهاتف غير متصل بالإنترنت، لذلك لا يمكنه إرسال النتائج إلى 121. نتائجك محفوظة بأمان على الهاتف.
+    do: أرسلها لاحقًا عندما يعرض المربع في أعلى الشاشة **{{ app.status_online }}**.
+  fr:
+    means: "Le téléphone est hors ligne, il ne peut donc pas envoyer les résultats à 121. Vos résultats sont conservés en sécurité sur le téléphone."
+    do: "Envoyez-les plus tard, quand la case en haut indique **{{ app.status_online }}**."
+
+- id: no_payments
+  group: program
+  key: no_payments
+  en:
+    means: There are no approved payments waiting to be sent.
+    do: Nothing to do. Payments appear here after you tap **{{ app.payment_approved }}** for a person.
+  ar:
+    means: لا توجد مدفوعات تمت الموافقة عليها في انتظار الإرسال.
+    do: لا حاجة لأي إجراء. تظهر المدفوعات هنا بعد الضغط على **{{ app.payment_approved }}** لشخص ما.
+  fr:
+    means: "Aucun paiement approuvé n’attend d’être envoyé."
+    do: "Rien à faire. Les paiements apparaissent ici après avoir appuyé sur **{{ app.payment_approved }}** pour une personne."
+
+- id: sync_failed
+  group: program
+  text: No data was changed on this device.
+  en:
+    means: The sync did not finish. The people from your last successful sync are still on the phone.
+    do: Try **Sync** again in a few minutes. If it fails again, read the red message to your administrator.
+  ar:
+    means: لم تكتمل المزامنة. الأشخاص من آخر مزامنة ناجحة ما زالوا على الهاتف.
+    do: حاول **Sync** مرة أخرى بعد بضع دقائق. إذا فشلت مرة أخرى، اقرأ الرسالة الحمراء للمسؤول.
+  fr:
+    means: "La synchronisation ne s’est pas terminée. Les personnes de votre dernière synchronisation réussie sont toujours sur le téléphone."
+    do: "Réessayez **Sync** dans quelques minutes. Si cela échoue encore, lisez le message rouge à votre administrateur."
+
+- id: send_failed
+  group: program
+  text: Failed to send payments
+  en:
+    means: The results did not reach 121. Nothing was lost. The payments are still on the phone.
+    do: Try **Send** again when the connection is better. If it keeps failing, tell your administrator what the message says after these words.
+  ar:
+    means: لم تصل النتائج إلى 121. لم يُفقد شيء، فالمدفوعات ما زالت على الهاتف.
+    do: حاول **Send** مرة أخرى عندما يتحسن الاتصال. إذا استمر الفشل، أخبر المسؤول بما تقوله الرسالة بعد هذه الكلمات.
+  fr:
+    means: "Les résultats ne sont pas arrivés dans 121. Rien n’a été perdu : les paiements sont toujours sur le téléphone."
+    do: "Réessayez **Send** quand la connexion est meilleure. Si l’échec se répète, indiquez à votre administrateur ce que dit le message après ces mots."
+
+- id: registration_update_failed
+  group: program
+  text: Payments sent, but registration updates failed
+  en:
+    means: The payments reached 121, but the values typed into extra fields (for example card numbers) did not.
+    do: Do not send again. Tell your administrator, and give them the rest of the message.
+  ar:
+    means: وصلت المدفوعات إلى 121، لكن القيم المكتوبة في الحقول الإضافية (مثل أرقام البطاقات) لم تصل.
+    do: لا ترسل مرة أخرى. أخبر المسؤول وأعطه بقية نص الرسالة.
+  fr:
+    means: "Les paiements sont arrivés dans 121, mais pas les informations saisies dans les champs supplémentaires (par exemple les numéros de carte)."
+    do: "N’envoyez pas une deuxième fois. Prévenez votre administrateur et donnez-lui la suite du message."
+
+- id: camera_denied
+  group: scanning
+  key: camera_denied
+  card: true
+  en:
+    means: The phone did not let 121 Scan use the camera.
+    do: Allow the camera for this site in your browser settings and open the scan screen again. Or type the code instead (@staff/code-wont-scan).
+  ar:
+    means: لم يسمح الهاتف لتطبيق 121 Scan باستخدام الكاميرا.
+    do: اسمح باستخدام الكاميرا لهذا الموقع في إعدادات المتصفح ثم افتح شاشة المسح مرة أخرى. أو اكتب الرمز بدلًا من ذلك (@staff/code-wont-scan).
+  fr:
+    means: "Le téléphone n’a pas autorisé 121 Scan à utiliser la caméra."
+    do: "Autorisez la caméra pour ce site dans les réglages du navigateur, puis rouvrez l’écran de scan. Ou tapez le code à la place (@staff/code-wont-scan)."
+
+- id: no_read_banner
+  group: scanning
+  key: no_read_banner
+  card: true
+  en:
+    means: The QR code is blurred, faded or damaged, so the camera cannot read it.
+    do: Type the Reference ID printed under the QR code (@staff/code-wont-scan).
+  ar:
+    means: رمز QR غير واضح أو باهت أو تالف، لذلك لا تستطيع الكاميرا قراءته.
+    do: اكتب المعرّف المرجعي المطبوع أسفل رمز QR (@staff/code-wont-scan).
+  fr:
+    means: "Le code QR est flou, effacé ou abîmé, la caméra ne peut donc pas le lire."
+    do: "Tapez l’identifiant de référence imprimé sous le code QR (@staff/code-wont-scan)."
+
+- id: decoder_unavailable
+  group: scanning
+  key: decoder_unavailable
+  en:
+    means: The scanner cannot run on this phone.
+    do: Type the Reference ID printed under the QR code (@staff/code-wont-scan). If this happens on every scan, tell your administrator.
+  ar:
+    means: لا يمكن تشغيل الماسح على هذا الهاتف.
+    do: اكتب المعرّف المرجعي المطبوع أسفل رمز QR (@staff/code-wont-scan). إذا تكرر ذلك في كل مرة، أخبر المسؤول.
+  fr:
+    means: "Le scanner ne peut pas fonctionner sur ce téléphone."
+    do: "Tapez l’identifiant de référence imprimé sous le code QR (@staff/code-wont-scan). Si cela arrive à chaque scan, prévenez votre administrateur."
+
+- id: lookup_none
+  group: scanning
+  key: lookup_none
+  card: true
+  en:
+    means: The code you typed does not match anyone saved on this phone.
+    do: Check each character against the voucher. If the code is right, the person may not be in your last sync. See the message *{{ app.reason_no_record }}*.
+  ar:
+    means: الرمز الذي كتبته لا يطابق أي شخص محفوظ على هذا الهاتف.
+    do: قارن كل حرف بما هو مطبوع على القسيمة. إذا كان الرمز صحيحًا، فقد لا يكون الشخص ضمن آخر مزامنة. راجع الرسالة *{{ app.reason_no_record }}*.
+  fr:
+    means: "Le code tapé ne correspond à aucune personne enregistrée sur ce téléphone."
+    do: "Comparez chaque caractère avec le coupon. Si le code est correct, la personne n’est peut-être pas dans votre dernière synchronisation. Voir le message *{{ app.reason_no_record }}*."
+
+- id: lookup_duplicate
+  group: scanning
+  key: lookup_duplicate
+  en:
+    means: More than one person has the value you typed, so the app cannot tell who it is.
+    do: Use the Reference ID printed under the QR code instead.
+  ar:
+    means: هناك أكثر من شخص لديه القيمة التي كتبتها، لذلك لا يستطيع التطبيق تحديد الشخص.
+    do: استخدم المعرّف المرجعي المطبوع أسفل رمز QR بدلًا من ذلك.
+  fr:
+    means: "Plusieurs personnes ont la valeur tapée, l’application ne peut donc pas savoir de qui il s’agit."
+    do: "Utilisez plutôt l’identifiant de référence imprimé sous le code QR."
+
+- id: verify_only_note
+  group: beneficiary
+  key: verify_only_note
+  en:
+    means: Your 121 account can check people but cannot record payments.
+    do: You can still check who the person is. If you should be recording payments, ask your 121 administrator to update your role.
+  ar:
+    means: يمكن لحسابك في 121 التحقق من الأشخاص، لكن لا يمكنه تسجيل المدفوعات.
+    do: لا يزال بإمكانك التحقق من هوية الشخص. إذا كان من المفترض أن تسجّل المدفوعات، اطلب من مسؤول 121 تحديث صلاحياتك.
+  fr:
+    means: "Votre compte 121 peut vérifier les personnes, mais ne peut pas enregistrer de paiements."
+    do: "Vous pouvez quand même vérifier qui est la personne. Si vous devez enregistrer des paiements, demandez à votre administrateur 121 de modifier votre rôle."
+
+- id: all_collected
+  group: beneficiary
+  key: all_collected
+  en:
+    means: Every payment waiting for this person has already been approved on this phone.
+    do: Do not hand over anything again. If the person says they were not paid, talk to your supervisor.
+  ar:
+    means: تمت الموافقة على جميع المدفوعات المنتظرة لهذا الشخص على هذا الهاتف.
+    do: لا تسلّم أي شيء مرة أخرى. إذا قال الشخص إنه لم يستلم، تحدث إلى المشرف.
+  fr:
+    means: "Tous les paiements en attente pour cette personne ont déjà été approuvés sur ce téléphone."
+    do: "Ne remettez rien une deuxième fois. Si la personne dit ne pas avoir été payée, parlez-en à votre superviseur."
+
+- id: reason_used
+  group: invalid
+  key: reason_used
+  card: true
+  en:
+    means: Every payment waiting for this person has already been approved on this phone.
+    do: Do not pay again. If the person says they were not paid, talk to your supervisor.
+  ar:
+    means: تمت الموافقة على جميع المدفوعات المنتظرة لهذا الشخص على هذا الهاتف.
+    do: لا تدفع مرة أخرى. إذا قال الشخص إنه لم يستلم، تحدث إلى المشرف.
+  fr:
+    means: "Tous les paiements en attente pour cette personne ont déjà été approuvés sur ce téléphone."
+    do: "Ne payez pas une deuxième fois. Si la personne dit ne pas avoir été payée, parlez-en à votre superviseur."
+
+- id: reason_no_record
+  group: invalid
+  key: reason_no_record
+  card: true
+  en:
+    means: This person is not in your last sync. Their payment may not be waiting in 121, or they may belong to another program.
+    do: Check you chose the right program. When you have internet, tap **Sync** again. If they are still missing, ask your administrator to check their payment in 121.
+  ar:
+    means: هذا الشخص غير موجود في آخر مزامنة. قد لا تكون دفعته في الانتظار في 121، أو قد يكون من برنامج آخر.
+    do: تأكد من أنك اخترت البرنامج الصحيح. عند توفر الإنترنت، اضغط **Sync** مرة أخرى. إذا بقي غير موجود، اطلب من المسؤول التحقق من دفعته في 121.
+  fr:
+    means: "Cette personne n’est pas dans votre dernière synchronisation. Son paiement n’est peut-être pas en attente dans 121, ou elle fait partie d’un autre programme."
+    do: "Vérifiez que vous avez choisi le bon programme. Quand vous avez internet, appuyez à nouveau sur **Sync**. Si elle est toujours absente, demandez à votre administrateur de vérifier son paiement dans 121."
+
+- id: reason_invalid
+  group: invalid
+  key: reason_invalid
+  en:
+    means: The code is not valid for this program.
+    do: Check the voucher belongs to this program. If you are not sure, talk to your supervisor.
+  ar:
+    means: الرمز غير صالح لهذا البرنامج.
+    do: تأكد من أن القسيمة تخص هذا البرنامج. إذا لم تكن متأكدًا، تحدث إلى المشرف.
+  fr:
+    means: "Le code n’est pas valide pour ce programme."
+    do: "Vérifiez que le coupon appartient à ce programme. En cas de doute, parlez-en à votre superviseur."
+
+- id: reason_database
+  group: invalid
+  key: reason_database
+  en:
+    means: The phone could not read the people saved on it.
+    do: Try again. If it keeps happening, close the browser and open 121 Scan again. If that does not help, tap **Sync** again when you have internet.
+  ar:
+    means: لم يتمكن الهاتف من قراءة بيانات الأشخاص المحفوظة عليه.
+    do: حاول مرة أخرى. إذا تكرر ذلك، أغلق المتصفح وافتح 121 Scan من جديد. إذا لم يساعد ذلك، اضغط **Sync** مرة أخرى عند توفر الإنترنت.
+  fr:
+    means: "Le téléphone n’a pas pu lire les personnes enregistrées."
+    do: "Réessayez. Si cela se répète, fermez le navigateur et rouvrez 121 Scan. Si cela ne suffit pas, appuyez à nouveau sur **Sync** quand vous avez internet."
+
+- id: not_cached
+  group: offline
+  text: This page hasn't been cached yet.
+  en:
+    means: This screen was not saved on the phone before it went offline.
+    do: Connect to the internet once, open the program screen and tap **Scan**, then go back. The screens are then saved for offline use.
+  ar:
+    means: لم تُحفظ هذه الشاشة على الهاتف قبل انقطاع الاتصال.
+    do: اتصل بالإنترنت مرة واحدة، وافتح شاشة البرنامج واضغط **Scan** ثم ارجع. بعد ذلك تُحفظ الشاشات للاستخدام دون اتصال.
+  fr:
+    means: "Cet écran n’a pas été enregistré sur le téléphone avant la perte de connexion."
+    do: "Connectez-vous à internet une fois, ouvrez l’écran du programme, appuyez sur **Scan**, puis revenez en arrière. Les écrans sont alors enregistrés pour une utilisation hors ligne."

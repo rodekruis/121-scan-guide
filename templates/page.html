@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}" dir="{{ 'rtl' if lang == 'ar' else 'ltr' }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ page.title }}{% if kind != 'home' %} – {{ ui.site_name }}{% endif %}</title>
+<link rel="icon" type="image/png" href="{{ root }}assets/favicon.png">
+<link rel="stylesheet" href="{{ root }}assets/site.css">
+</head>
+<body class="kind-{{ kind }}{% if role %} role-{{ role }}{% endif %}">
+<a class="skip" href="#main">{{ ui.skip }}</a>
+<header class="band">
+  <a class="brand" href="{{ url('index') }}"><img src="{{ root }}assets/icon-96.png" alt="" width="36" height="36"><span>{{ ui.site_name }}</span></a>
+  <nav class="tools">
+    {%- for other in langs if other != lang %}
+    <a class="lang" href="{{ url(slug, other) }}" data-lang="{{ other }}" lang="{{ other }}" hreflang="{{ other }}" aria-label="{{ lang_names[other] }}"><span class="full">{{ lang_names[other] }}</span><span class="short" aria-hidden="true">{{ lang_short[other] }}</span></a>
+    {%- endfor %}
+    {%- if kind != 'messages' %}
+    <a class="find" href="{{ url('messages') }}" aria-label="{{ ui.search_button }}"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></a>
+    {%- endif %}
+  </nav>
+</header>
+
+<main id="main">
+{%- if kind != 'home' %}
+  <nav class="crumbs" aria-label="breadcrumb"><a href="{{ url('index') }}">{{ ui.home_crumb }}</a>{% if parent %}<span class="sep" aria-hidden="true">›</span><a href="{{ url(parent.slug) }}">{{ parent.title }}</a>{% endif %}</nav>
+{%- endif %}
+
+{%- if kind == 'home' %}
+  <h1>{{ ui.home_title }}</h1>
+  <p class="lead">{{ ui.home_lead }}</p>
+  <h2 class="who">{{ app.home_question }}</h2>
+  <div class="roles">
+    <a class="role staff" href="{{ url('staff/index') }}">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7V5a1 1 0 0 1 1-1h2M17 4h2a1 1 0 0 1 1 1v2M20 17v2a1 1 0 0 1-1 1h-2M7 20H5a1 1 0 0 1-1-1v-2"/><rect x="8" y="8" width="8" height="8" rx="1"/></svg>
+      <span class="role-name">{{ app.home_fsp }}</span><span class="role-sub">{{ ui.staff_sub }}</span></a>
+    <a class="role admin" href="{{ url('admin/index') }}">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+      <span class="role-name">{{ app.home_admin }}</span><span class="role-sub">{{ ui.admin_sub }}</span></a>
+  </div>
+  <form class="search" action="{{ url('messages') }}" method="get" role="search">
+    <label for="q">{{ ui.search_label }}</label>
+    <div class="search-row"><input id="q" name="q" type="search" placeholder="{{ ui.search_placeholder }}" autocomplete="off"><button type="submit">{{ ui.search_button }}</button></div>
+  </form>
+
+{%- else %}
+  <h1>{{ page.title }}</h1>
+  {%- if page.lead %}<p class="lead">{{ page.lead }}</p>{% endif %}
+
+  {%- if kind == 'task' %}
+  <div class="content">{{ body }}</div>
+  <a class="callout" href="{{ url('messages') }}"><strong>{{ ui.seeing_message }}</strong> <span>{{ ui.look_it_up }}</span></a>
+
+  {%- elif kind == 'role' %}
+  {%- if children %}
+  <ul class="tasks">
+    {%- for c in children %}
+    <li><a href="{{ url(c.slug) }}"><span class="t">{{ c.title }}</span>{% if c.lead %}<span class="l">{{ c.lead }}</span>{% endif %}<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+    {%- endfor %}
+  </ul>
+  {%- else %}
+  <p class="note">{{ ui.admin_soon | replace('{email}', support_email) }}</p>
+  {%- endif %}
+
+  {%- elif kind == 'messages' %}
+  <div class="search" role="search">
+    <label for="mq">{{ ui.search_label }}</label>
+    <input id="mq" type="search" placeholder="{{ ui.search_placeholder }}" autocomplete="off" data-filter>
+    <p class="count" data-count data-template="{{ ui.messages_count }}" data-template-one="{{ ui.messages_count_one }}" aria-live="polite"></p>
+  </div>
+  <p class="empty" data-empty hidden>{{ ui.no_results }}</p>
+  {%- for g in message_groups %}
+  <section class="msg-group" data-group>
+    <h2>{{ ui.groups[g.name] }}</h2>
+    {%- for m in g.msgs %}
+    <article class="msg" id="{{ m.id }}" data-search="{{ m.search }}">
+      <p class="screen"{% if m.english_only %} lang="en" dir="ltr"{% endif %}>{{ m.text }}</p>
+      {%- if m.english_only %}<p class="en-only">{{ ui.english_only }}</p>{% endif %}
+      <dl><dt>{{ ui.what_it_means }}</dt><dd>{{ m.means }}</dd><dt>{{ ui.what_to_do }}</dt><dd>{{ m.do }}</dd></dl>
+    </article>
+    {%- endfor %}
+  </section>
+  {%- endfor %}
+
+  {%- elif kind == 'card' %}
+  <button class="print" type="button" data-print>{{ ui.print }}</button>
+  {%- for t in card_tasks %}
+  <section class="card-task"><h2>{{ t.title }}</h2><ol>{% for s in t.steps %}<li>{{ s }}</li>{% endfor %}</ol></section>
+  {%- endfor %}
+  <section class="card-msgs"><h2>{{ ui.card_messages }}</h2>
+    {%- for m in card_messages %}
+    <div class="card-msg"><p class="screen"{% if m.english_only %} lang="en" dir="ltr"{% endif %}>{{ m.text }}</p><p>{{ m.do }}</p></div>
+    {%- endfor %}
+  </section>
+  {%- endif %}
+
+  {%- if next %}
+  <a class="next" href="{{ url(next.slug) }}"><span class="k">{{ ui.next }}</span><span class="t">{{ next.title }}</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
+  {%- endif %}
+{%- endif %}
+</main>
+
+<footer class="foot">
+  <p>{{ ui.checked | replace('{date}', checked_date) }}</p>
+  <p>{{ ui.support | replace('{email}', '') }}<a href="mailto:{{ support_email }}" dir="ltr">{{ support_email }}</a></p>
+</footer>
+<script src="{{ root }}assets/site.js"></script>
+</body>
+</html>

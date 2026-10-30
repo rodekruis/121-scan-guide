@@ -1,0 +1,6 @@
+{%- macro step(shot=None, desc=None) -%}
+<li class="step"><div class="step-text">{{ caller() | md_inline | collect_step }}</div>{{ shot_html(shot, desc) }}</li>
+{%- endmacro -%}
+{%- macro note() -%}
+<div class="note">{{ caller() | md_inline }}</div>
+{%- endmacro -%}

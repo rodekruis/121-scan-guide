@@ -1,0 +1,107 @@
+# Wording of the guide itself (not of the app) in each language.
+# Button and message names come from the app; see data/app_text.json.
+
+en:
+  site_name: 121 Scan help
+  skip: Skip to content
+  home_crumb: Help home
+  home_title: Help with 121 Scan
+  home_lead: Step-by-step help for using 121 Scan at cash and voucher distributions.
+  staff_sub: Scanning vouchers and recording payments
+  admin_sub: Setting up programs, screens and vouchers
+  search_label: Seeing a message on screen? Type a few words of it.
+  search_placeholder: already been used
+  search_button: Search
+  seeing_message: Seeing a message on screen?
+  look_it_up: Look it up
+  next: Next
+  checked: Checked against the app on {date}.
+  support: "Need more help? Contact {email}"
+  what_it_means: What it means
+  what_to_do: What to do
+  english_only: In the app this message appears in English.
+  no_results: No message matches. Check the spelling, or contact support.
+  messages_count: "{n} messages"
+  messages_count_one: "1 message"
+  print: Print this card
+  screenshot_todo: Picture coming soon
+  admin_soon: "The administrator pages are being written. Until they are ready, contact {email}."
+  card_messages: Common messages
+  groups:
+    login: Logging in
+    program: On the program screen
+    scanning: While scanning
+    invalid: On the Invalid QR Code screen
+    beneficiary: On the beneficiary screen
+    offline: Without internet
+  months: [January, February, March, April, May, June, July, August, September, October, November, December]
+
+ar:
+  site_name: مساعدة 121 Scan
+  skip: الانتقال إلى المحتوى
+  home_crumb: الصفحة الرئيسية للمساعدة
+  home_title: المساعدة في استخدام 121 Scan
+  home_lead: إرشادات خطوة بخطوة لاستخدام 121 Scan في توزيعات النقد والقسائم.
+  staff_sub: مسح القسائم وتسجيل المدفوعات
+  admin_sub: إعداد البرامج والشاشات والقسائم
+  search_label: هل تظهر رسالة على الشاشة؟ اكتب بضع كلمات منها.
+  search_placeholder: تم استخدام
+  search_button: بحث
+  seeing_message: هل تظهر رسالة على الشاشة؟
+  look_it_up: ابحث عنها
+  next: التالي
+  checked: "تمت المطابقة مع التطبيق بتاريخ {date}."
+  support: "هل تحتاج إلى مساعدة إضافية؟ تواصل مع {email}"
+  what_it_means: ماذا تعني
+  what_to_do: ماذا تفعل
+  english_only: تظهر هذه الرسالة في التطبيق باللغة الإنجليزية.
+  no_results: لا توجد رسالة مطابقة. تحقق من الكتابة، أو تواصل مع الدعم.
+  messages_count: "عدد الرسائل: {n}"
+  messages_count_one: "رسالة واحدة"
+  print: اطبع هذه البطاقة
+  screenshot_todo: ستُضاف الصورة قريبًا
+  admin_soon: "صفحات المسؤولين قيد الإعداد. إلى أن تجهز، تواصل مع {email}."
+  card_messages: رسائل شائعة
+  groups:
+    login: تسجيل الدخول
+    program: في شاشة البرنامج
+    scanning: أثناء المسح
+    invalid: في شاشة رمز QR غير صالح
+    beneficiary: في شاشة المستفيد
+    offline: دون اتصال بالإنترنت
+  months: [يناير, فبراير, مارس, أبريل, مايو, يونيو, يوليو, أغسطس, سبتمبر, أكتوبر, نوفمبر, ديسمبر]
+
+fr:
+  site_name: Aide 121 Scan
+  skip: Aller au contenu
+  home_crumb: Accueil de l’aide
+  home_title: Aide pour 121 Scan
+  home_lead: Des instructions pas à pas pour utiliser 121 Scan lors des distributions d’argent et de coupons.
+  staff_sub: Scanner les coupons et enregistrer les paiements
+  admin_sub: Configurer les programmes, les écrans et les coupons
+  search_label: Un message s’affiche à l’écran ? Tapez quelques mots.
+  search_placeholder: déjà été utilisé
+  search_button: Rechercher
+  seeing_message: Un message s’affiche à l’écran ?
+  look_it_up: Le rechercher
+  next: Suivant
+  checked: Vérifié par rapport à l’application le {date}.
+  support: "Besoin d’aide ? Contactez {email}"
+  what_it_means: Ce que cela signifie
+  what_to_do: Que faire
+  english_only: Dans l’application, ce message s’affiche en anglais.
+  no_results: Aucun message ne correspond. Vérifiez l’orthographe ou contactez l’assistance.
+  messages_count: "{n} messages"
+  messages_count_one: "1 message"
+  print: Imprimer cette fiche
+  screenshot_todo: Image à venir
+  admin_soon: "Les pages pour les administrateurs sont en cours de rédaction. En attendant, contactez {email}."
+  card_messages: Messages fréquents
+  groups:
+    login: Connexion
+    program: Sur l’écran du programme
+    scanning: Pendant le scan
+    invalid: Sur l’écran Code QR invalide
+    beneficiary: Sur l’écran du bénéficiaire
+    offline: Sans internet
+  months: [janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]

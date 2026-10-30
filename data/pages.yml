@@ -1,0 +1,18 @@
+# Page order and FIXED addresses. The app's Help links depend on these slugs:
+# never rename one. "kind" picks the page layout.
+langs: [en, fr, ar]
+pages:
+  - {slug: index, kind: home}
+  - {slug: staff/index, kind: role, role: staff}
+  - {slug: staff/before-you-go, kind: task, role: staff}
+  - {slug: staff/scanning, kind: task, role: staff}
+  - {slug: staff/code-wont-scan, kind: task, role: staff}
+  - {slug: staff/sending-results, kind: task, role: staff}
+  - {slug: staff/quick-card, kind: card, role: staff}
+  - {slug: admin/index, kind: role, role: admin}
+  - {slug: admin/connect, kind: task, role: admin}
+  - {slug: admin/what-staff-see, kind: task, role: admin}
+  - {slug: admin/voucher-design, kind: task, role: admin}
+  - {slug: admin/vouchers, kind: task, role: admin}
+  - {slug: admin/staff-roles, kind: task, role: admin}
+  - {slug: messages, kind: messages}
